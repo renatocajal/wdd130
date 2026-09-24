@@ -615,6 +615,31 @@ footer .onda {
     font-size: 12.5px;
 }
 
+/* Social Media Icons in Footer */
+.footer-content .redes-sociais a {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    margin: 0 8px;
+}
+
+.footer-content .redes-sociais a:hover {
+    background: var(--sol) !important;
+    transform: scale(1.1);
+}
+
+.footer-content .redes-sociais img {
+    display: block;
+    width: 24px;
+    height: 24px;
+    filter: brightness(1.2);
+}
+
 /* RESPONSIVIDADE MOBILE */
 @media (max-width: 900px) {
     .container-galeria {
