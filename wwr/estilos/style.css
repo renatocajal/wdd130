@@ -1,0 +1,734 @@
+/* ============================================
+   RAFTING AVENTURA — design system
+   Inspirado nas corredeiras: águas profundas,
+   espuma branca, barro de canyon e sol.
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap');
+
+:root {
+    --rio-profundo: #0e3b36;
+    --rio-profundo-escuro: #0a2b27;
+    --corrente: #2f8f7e;
+    --barro: #c1502e;
+    --barro-escuro: #a3421f;
+    --sol: #f2b705;
+    --espuma: #f6f8f4;
+    --branco: #ffffff;
+    --tinta: #12211d;
+    --tinta-suave: #4d5f5a;
+
+    --fonte-display: 'Anton', 'Arial Narrow', sans-serif;
+    --fonte-corpo: 'Work Sans', Arial, Helvetica, sans-serif;
+    --fonte-mono: 'IBM Plex Mono', 'Courier New', monospace;
+}
+
+/* RESET E ESTILOS GLOBAIS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--fonte-corpo);
+    color: var(--tinta);
+    line-height: 1.6;
+    background: var(--branco);
+}
+
+h1, h2, h3 {
+    font-family: var(--fonte-display);
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+a {
+    color: inherit;
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 3px solid var(--sol);
+    outline-offset: 3px;
+}
+
+/* Divisor em formato de onda, reutilizado no fim do hero e no topo do rodapé */
+.onda {
+    display: block;
+    width: 100%;
+    height: 60px;
+    line-height: 0;
+}
+
+.onda svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* HEADER */
+header {
+    background-color: var(--rio-profundo);
+    color: var(--branco);
+    padding: 18px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 3px solid var(--sol);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--fonte-display);
+    font-size: 22px;
+    letter-spacing: 1px;
+}
+
+.logo svg {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+}
+
+nav {
+    display: flex;
+    gap: 34px;
+}
+
+nav a {
+    color: var(--branco);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    padding-bottom: 4px;
+    transition: color 0.3s;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: var(--sol);
+    transition: width 0.3s;
+}
+
+nav a:hover {
+    color: var(--sol);
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* SEÇÃO HERO */
+.hero {
+    position: relative;
+    height: 620px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(14, 59, 54, 0.75) 0%, rgba(14, 59, 54, 0.35) 45%, rgba(10, 43, 39, 0.9) 100%);
+    z-index: 2;
+}
+
+.hero-texto {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    color: var(--branco);
+    padding: 0 20px;
+}
+
+.eyebrow {
+    display: inline-block;
+    font-family: var(--fonte-mono);
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--sol);
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(242, 183, 5, 0.5);
+    padding: 6px 16px;
+    border-radius: 999px;
+    margin-bottom: 22px;
+}
+
+.hero-texto h1 {
+    font-size: 64px;
+    line-height: 1.05;
+    margin-bottom: 18px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.hero-texto p {
+    font-size: 19px;
+    margin-bottom: 34px;
+    color: var(--espuma);
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero .onda {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    z-index: 3;
+}
+
+/* BOTÕES */
+button {
+    background-color: var(--barro);
+    color: var(--branco);
+    padding: 14px 32px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: var(--fonte-corpo);
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.25s;
+}
+
+button:hover {
+    background-color: var(--barro-escuro);
+    transform: translateY(-2px);
+}
+
+.btn-cta {
+    padding: 17px 44px;
+    font-size: 16px;
+}
+
+/* SEÇÃO BENEFÍCIOS */
+.beneficios {
+    background-color: var(--espuma);
+    padding: 90px 40px 70px;
+    text-align: center;
+}
+
+.beneficios h2 {
+    font-size: 38px;
+    margin-bottom: 12px;
+    color: var(--rio-profundo);
+}
+
+.subtitulo-secao {
+    font-family: var(--fonte-mono);
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--corrente);
+    margin-bottom: 50px;
+}
+
+.container-beneficios {
+    display: flex;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.card {
+    background: var(--branco);
+    padding: 40px 26px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(14, 59, 54, 0.08);
+    flex: 1;
+    min-width: 250px;
+    transition: 0.3s;
+    text-align: left;
+}
+
+.card:hover {
+    box-shadow: 0 10px 24px rgba(14, 59, 54, 0.14);
+    transform: translateY(-6px);
+}
+
+.card .icone-card {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: 2px solid var(--corrente);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.card .icone-card svg {
+    width: 22px;
+    height: 22px;
+    stroke: var(--corrente);
+}
+
+.card h3 {
+    color: var(--rio-profundo);
+    margin-bottom: 12px;
+    font-size: 18px;
+    letter-spacing: 0.3px;
+}
+
+.card p {
+    color: var(--tinta-suave);
+    font-size: 14.5px;
+}
+
+/* SEÇÃO PACOTES — apresentados como uma rota de corredeiras */
+.pacotes {
+    padding: 90px 40px 100px;
+    text-align: center;
+    background: var(--branco);
+}
+
+.pacotes h2 {
+    font-size: 38px;
+    margin-bottom: 12px;
+    color: var(--rio-profundo);
+}
+
+.container-pacotes {
+    position: relative;
+    display: flex;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 40px auto 0;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* linha do rio conectando os pacotes, como um mapa de rota */
+.container-pacotes::before {
+    content: '';
+    position: absolute;
+    top: 14px;
+    left: 8%;
+    right: 8%;
+    height: 0;
+    border-top: 3px dashed var(--corrente);
+    opacity: 0.35;
+    z-index: 0;
+}
+
+.pacote {
+    position: relative;
+    background: var(--branco);
+    border: 2px solid #e4e9e6;
+    border-radius: 10px;
+    padding: 28px 24px 30px;
+    flex: 1;
+    min-width: 280px;
+    text-align: left;
+    transition: 0.3s;
+    z-index: 1;
+}
+
+.pacote:hover {
+    box-shadow: 0 10px 26px rgba(14, 59, 54, 0.12);
+    transform: translateY(-4px);
+}
+
+.grau-corredeira {
+    display: inline-block;
+    font-family: var(--fonte-mono);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--rio-profundo);
+    background: var(--espuma);
+    border: 1px solid var(--corrente);
+    border-radius: 999px;
+    padding: 5px 14px;
+    margin-bottom: 18px;
+}
+
+.pacote img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 18px;
+}
+
+.pacote h3 {
+    font-size: 21px;
+    color: var(--rio-profundo);
+    margin-bottom: 10px;
+    letter-spacing: 0.3px;
+}
+
+.pacote.destaque {
+    border-color: var(--sol);
+    border-width: 3px;
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(242, 183, 5, 0.18);
+}
+
+.pacote.destaque:hover {
+    transform: scale(1.05) translateY(-4px);
+}
+
+.selo-destaque {
+    position: absolute;
+    top: -14px;
+    right: 20px;
+    background: var(--sol);
+    color: var(--tinta);
+    font-family: var(--fonte-mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border-radius: 999px;
+}
+
+.preco {
+    font-family: var(--fonte-mono);
+    font-size: 30px;
+    color: var(--barro);
+    font-weight: 600;
+    margin-bottom: 22px;
+}
+
+.pacote ul {
+    list-style: none;
+    margin-bottom: 24px;
+}
+
+.pacote ul li {
+    padding: 9px 0;
+    border-bottom: 1px solid #eef1ef;
+    color: var(--tinta-suave);
+    font-size: 14.5px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.pacote ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 16px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--corrente);
+}
+
+.pacote ul li:last-child {
+    border-bottom: none;
+}
+
+.pacote button {
+    width: 100%;
+}
+
+/* SEÇÃO GALERIA */
+.galeria {
+    background-color: var(--rio-profundo);
+    padding: 90px 40px;
+    text-align: center;
+}
+
+.galeria h2 {
+    font-size: 38px;
+    margin-bottom: 12px;
+    color: var(--branco);
+}
+
+.galeria .subtitulo-secao {
+    color: var(--sol);
+}
+
+.container-galeria {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 40px auto 0;
+}
+
+.galeria-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 280px;
+}
+
+.galeria-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.galeria-item p {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    padding: 20px 16px 16px;
+    background: linear-gradient(0deg, rgba(10, 43, 39, 0.92) 0%, rgba(10, 43, 39, 0) 100%);
+    color: var(--branco);
+    font-size: 14px;
+    text-align: left;
+    transform: translateY(8px);
+    opacity: 0.9;
+    transition: 0.3s;
+}
+
+.galeria-item:hover img {
+    transform: scale(1.08);
+}
+
+.galeria-item:hover p {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* SEÇÃO REDES SOCIAIS */
+.redes-sociais {
+    background-color: var(--espuma);
+    padding: 60px 40px;
+    text-align: center;
+}
+
+.redes-sociais h2 {
+    margin-bottom: 30px;
+    font-size: 26px;
+    color: var(--rio-profundo);
+}
+
+.container-redes {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.icone {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: var(--branco);
+    color: var(--rio-profundo);
+    border: 2px solid var(--corrente);
+    border-radius: 50%;
+    text-decoration: none;
+    transition: 0.25s;
+}
+
+.icone svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+.icone:hover {
+    background-color: var(--sol);
+    border-color: var(--sol);
+    color: var(--tinta);
+    transform: scale(1.1);
+}
+
+/* FOOTER */
+footer {
+    background-color: var(--rio-profundo-escuro);
+    color: var(--branco);
+    text-align: center;
+}
+
+footer .onda {
+    background: var(--espuma);
+}
+
+.footer-content {
+    padding: 20px 40px 46px;
+}
+
+.footer-content h3 {
+    margin-bottom: 16px;
+    font-size: 24px;
+}
+
+.footer-content p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #cfe0dc;
+}
+
+.footer-content p svg {
+    width: 14px;
+    height: 14px;
+    fill: var(--sol);
+    flex-shrink: 0;
+}
+
+.footer-content .copyright {
+    margin-top: 20px;
+    color: #7fa39b;
+    font-size: 12.5px;
+}
+
+/* Social Media Icons in Footer */
+.footer-content .redes-sociais a {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    margin: 0 8px;
+}
+
+.footer-content .redes-sociais a:hover {
+    background: var(--sol) !important;
+    transform: scale(1.1);
+}
+
+.footer-content .redes-sociais img {
+    display: block;
+    width: 24px;
+    height: 24px;
+    filter: brightness(1.2);
+}
+
+/* RESPONSIVIDADE MOBILE */
+@media (max-width: 900px) {
+    .container-galeria {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 16px;
+        padding: 18px 24px;
+    }
+
+    nav {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero {
+        height: 560px;
+    }
+
+    .hero-texto h1 {
+        font-size: 38px;
+    }
+
+    .hero-texto p {
+        font-size: 16px;
+    }
+
+    .beneficios,
+    .pacotes,
+    .galeria,
+    .redes-sociais {
+        padding: 60px 20px;
+    }
+
+    .beneficios h2,
+    .pacotes h2,
+    .galeria h2 {
+        font-size: 28px;
+    }
+
+    .container-beneficios,
+    .container-pacotes {
+        flex-direction: column;
+    }
+
+    .container-pacotes::before {
+        display: none;
+    }
+
+    .container-galeria {
+        grid-template-columns: 1fr;
+    }
+
+    .pacote.destaque {
+        transform: scale(1);
+    }
+
+    .card,
+    .pacote {
+        min-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-texto h1 {
+        font-size: 30px;
+    }
+
+    .hero-texto p {
+        font-size: 14px;
+    }
+
+    .eyebrow {
+        font-size: 11px;
+        padding: 5px 12px;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+
+    nav a {
+        font-size: 13px;
+    }
+}
