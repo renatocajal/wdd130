@@ -77,9 +77,10 @@ header {
     background-color: var(--rio-profundo);
     color: var(--branco);
     padding: 18px 40px;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: auto 1fr;
     align-items: center;
+    gap: 20px;
     position: sticky;
     top: 0;
     z-index: 100;
@@ -95,6 +96,13 @@ header {
     letter-spacing: 1px;
 }
 
+.logo img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
 .logo svg {
     width: 30px;
     height: 30px;
@@ -104,6 +112,7 @@ header {
 nav {
     display: flex;
     gap: 34px;
+    justify-content: flex-end;
 }
 
 nav a {
@@ -640,16 +649,138 @@ footer .onda {
     filter: brightness(1.2);
 }
 
+/* SEÇÃO HISTÓRIA — texto | imagem | texto */
+.historia {
+    background-color: var(--espuma);
+    padding: 90px 40px 70px;
+    text-align: center;
+}
+
+.historia h2 {
+    font-size: 38px;
+    margin-bottom: 12px;
+    color: var(--rio-profundo);
+}
+
+.historia .subtitulo-secao {
+    margin-bottom: 0;
+}
+
+.historia-grade {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 40px auto 0;
+}
+
+.historia-grade p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--tinta-suave);
+    text-align: left;
+}
+
+.historia-grade img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* SEÇÃO A AVENTURA ESTÁ TE ESPERANDO — 5 figuras na horizontal */
+.aventura {
+    background: linear-gradient(135deg, var(--rio-profundo) 0%, var(--corrente) 100%);
+    padding: 90px 40px;
+    text-align: center;
+    color: var(--branco);
+}
+
+.aventura h2 {
+    font-size: 38px;
+    margin-bottom: 12px;
+}
+
+.aventura .subtitulo-secao {
+    color: var(--sol);
+    margin-bottom: 0;
+}
+
+.aventura-figuras {
+    display: flex;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 40px auto 0;
+}
+
+.aventura-figuras figure {
+    flex: 1;
+    min-width: 0;
+}
+
+.aventura-figuras img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 3px solid var(--branco);
+}
+
+.aventura-figuras figcaption {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--espuma);
+}
+
+/* RODAPÉ da página Sobre — texto à esquerda, 3 imagens à direita */
+.footer-content.footer-sobre {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    text-align: left;
+}
+
+.footer-sobre .redes-sociais {
+    display: flex;
+    gap: 16px;
+    justify-content: flex-end;
+    background: none;
+    padding: 0;
+}
+
+.footer-sobre .redes-sociais a {
+    margin: 0;
+}
+
+.footer-sobre .footer-texto p {
+    display: block;
+    margin: 0;
+}
+
 /* RESPONSIVIDADE MOBILE */
 @media (max-width: 900px) {
     .container-galeria {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .aventura-figuras {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .aventura-figuras figure {
+        flex: 0 0 calc(33.333% - 14px);
+    }
 }
 
 @media (max-width: 768px) {
     header {
-        flex-direction: column;
+        grid-template-columns: 1fr;
+        justify-items: center;
         gap: 16px;
         padding: 18px 24px;
     }
@@ -675,8 +806,27 @@ footer .onda {
     .beneficios,
     .pacotes,
     .galeria,
+    .historia,
+    .aventura,
     .redes-sociais {
         padding: 60px 20px;
+    }
+
+    .historia-grade {
+        grid-template-columns: 1fr;
+    }
+
+    .aventura-figuras figure {
+        flex: 0 0 calc(50% - 10px);
+    }
+
+    .footer-content.footer-sobre {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-sobre .redes-sociais {
+        justify-content: center;
     }
 
     .beneficios h2,
