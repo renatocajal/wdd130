@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fale Conosco - Rafting Aventura | Contato e Reservas</title>
+    <meta name="description" content="Entre em contato com Rafting Aventura: veja endereço, telefone, e-mail e mapa, conheça nossa equipe e envie dúvidas, reservas ou sugestões pelo formulário.">
+    <meta name="author" content="Renato Cajal de Araujo">
+    <link rel="stylesheet" href="estilos/style.css">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">
+            <img src="imagens/logo-rafting.jpg" alt="Logo Rafting Aventura">
+            <span>RAFTING AVENTURA</span>
+        </div>
+        <nav>
+            <a href="index.html">Página Inicial</a>
+            <a href="sobre.html">Sobre Nós</a>
+            <a href="passeios.html">Passeios</a>
+            <a href="contato.html">Fale Conosco</a>
+        </nav>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main>
+    <!-- SEÇÃO HERO -->
+    <div class="hero hero-contato">
+        <img src="imagens/hero-rafting.jpg" alt="Bote de rafting descendo uma corredeira">
+        <div class="hero-texto">
+            <span class="eyebrow">Fale Conosco · Reservas e Dúvidas</span>
+            <h1>Entre em Contato</h1>
+            <p>Nossa equipe responde rápido para planejar a sua próxima descida</p>
+        </div>
+        <div class="onda">
+            <svg viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M0,30 C150,60 350,0 600,30 C850,60 1050,0 1200,30 L1200,60 L0,60 Z" fill="#f6f8f4"></path>
+            </svg>
+        </div>
+    </div>
+
+    <!-- SEÇÃO 1: INFORMAÇÕES DE CONTATO + MAPA -->
+    <section class="info-contato">
+        <h2>Onde Estamos</h2>
+        <p class="subtitulo-secao">Rio Turvo · Atendimento todos os dias</p>
+        <div class="info-grade">
+            <address class="dados-contato">
+                <h3>Rafting Aventura</h3>
+                <p><strong>Endereço:</strong><br>Estrada do Rio Turvo, 1500 – Zona Rural<br>Rio Turvo – PR, 83000-000</p>
+                <p><strong>Telefones:</strong><br>
+                    <a href="tel:+554133334444">(41) 3333-4444</a><br>
+                    <a href="tel:+5541999995555">(41) 99999-5555</a>
+                </p>
+                <p><strong>E-mail:</strong><br><a href="mailto:contato@raftingaventura.com.br">contato@raftingaventura.com.br</a></p>
+                <p><strong>Horário:</strong><br>Todos os dias, das 8h às 18h</p>
+            </address>
+            <iframe class="mapa" title="Mapa da localização da Rafting Aventura no Rio Turvo" src="https://www.google.com/maps?q=Rio+Turvo,+PR&amp;output=embed" width="600" height="360" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 2: EQUIPE -->
+    <section class="equipe">
+        <h2>Nossa Equipe</h2>
+        <p class="subtitulo-secao">Pessoas que cuidam da sua aventura</p>
+        <div class="equipe-figuras">
+            <figure>
+                <img src="imagens/equipe-1.jpg" alt="Retrato de Carlos Mendes" width="200" height="200" loading="lazy">
+                <figcaption><strong>Carlos Mendes</strong><br>Guia-chefe de Rafting</figcaption>
+            </figure>
+            <figure>
+                <img src="imagens/equipe-2.jpg" alt="Retrato de Ana Souza" width="200" height="200" loading="lazy">
+                <figcaption><strong>Ana Souza</strong><br>Coordenadora de Reservas</figcaption>
+            </figure>
+            <figure>
+                <img src="imagens/equipe-3.jpg" alt="Retrato de Marcos Lima" width="200" height="200" loading="lazy">
+                <figcaption><strong>Marcos Lima</strong><br>Instrutor de Segurança</figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 3: FORMULÁRIO -->
+    <section class="formulario">
+        <h2>Envie sua Mensagem</h2>
+        <p class="subtitulo-secao">Respondemos em até 1 dia útil</p>
+        <form class="form-contato" action="#" method="post">
+            <div class="campo">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" autocomplete="name" required>
+            </div>
+            <div class="campo">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" autocomplete="email" required>
+            </div>
+            <fieldset class="campo">
+                <legend>Finalidade da mensagem</legend>
+                <label class="opcao"><input type="radio" name="finalidade" value="consulta-geral" checked> Consulta Geral</label>
+                <label class="opcao"><input type="radio" name="finalidade" value="pergunta-reserva"> Pergunta sobre Reserva</label>
+                <label class="opcao"><input type="radio" name="finalidade" value="sugestao-site"> Sugestão de Site</label>
+            </fieldset>
+            <div class="campo">
+                <label for="mensagem">Mensagem</label>
+                <textarea id="mensagem" name="mensagem" rows="6" required></textarea>
+            </div>
+            <label class="opcao">
+                <input type="checkbox" name="newsletter" value="sim"> Quero receber a newsletter mensal
+            </label>
+            <button type="submit" class="btn-cta">Enviar Mensagem</button>
+        </form>
+    </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="contato">
+        <div class="onda">
+            <svg viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M0,30 C150,0 350,60 600,30 C850,0 1050,60 1200,30 L1200,0 L0,0 Z" fill="#0a2b27"></path>
+            </svg>
+        </div>
+        <div class="footer-content footer-sobre">
+            <div class="footer-texto">
+                <h3>Rafting Aventura</h3>
+                <p>&copy; 2026 Rafting Aventura. Desenvolvido por Renato Cajal de Araujo. Todos os direitos reservados.</p>
+            </div>
+            <nav class="redes-sociais" aria-label="Redes sociais">
+                <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Visite nosso Facebook" title="Facebook">
+                    <img src="imagens/facebook-icon.svg" alt="Facebook">
+                </a>
+                <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Visite nosso Instagram" title="Instagram">
+                    <img src="imagens/instagram-icon.svg" alt="Instagram">
+                </a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="Visite nosso LinkedIn" title="LinkedIn">
+                    <img src="imagens/linkedin-icon.svg" alt="LinkedIn">
+                </a>
+            </nav>
+        </div>
+    </footer>
+
+</body>
+</html>
