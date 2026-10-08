@@ -149,6 +149,7 @@ nav a:hover::after {
 /* SEÇÃO HERO */
 .hero {
     position: relative;
+    background-color: var(--rio-profundo);
     height: 620px;
     overflow: hidden;
     display: flex;
@@ -799,6 +800,7 @@ footer .onda {
 }
 
 .equipe {
+    background-color: var(--rio-profundo);
     background: linear-gradient(135deg, var(--rio-profundo) 0%, var(--corrente) 100%);
     color: var(--branco);
 }
@@ -819,6 +821,11 @@ footer .onda {
 .equipe .subtitulo-secao,
 .formulario .subtitulo-secao {
     margin-bottom: 0;
+}
+
+.info-contato .subtitulo-secao,
+.formulario .subtitulo-secao {
+    color: var(--tinta-suave);
 }
 
 .equipe .subtitulo-secao {
@@ -843,7 +850,7 @@ footer .onda {
     font-style: normal;
 }
 
-.dados-contato h3 {
+.dados-contato .dados-nome {
     color: var(--rio-profundo);
     font-size: 22px;
     margin-bottom: 18px;
