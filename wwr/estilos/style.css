@@ -1108,37 +1108,88 @@ footer .onda {
    PÁGINA INICIAL
    ============================================ */
 
-/* Título do hero posicionado sobre a imagem com position: absolute */
-.hero.hero-inicio .hero-texto {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: min(90%, 760px);
+/* HERO — título editorial alinhado à esquerda, posicionado com position: absolute */
+.hero.hero-inicio {
+    height: min(88vh, 760px);
+    min-height: 600px;
 }
 
-/* Película mais escura no centro para o texto ficar legível sobre a espuma */
+.hero.hero-inicio img {
+    animation: correnteza 24s ease-out both;
+}
+
 .hero.hero-inicio::before {
     background:
-        radial-gradient(ellipse at center, rgba(10, 43, 39, 0.72) 0%, rgba(10, 43, 39, 0.5) 55%, rgba(10, 43, 39, 0.2) 100%),
-        linear-gradient(180deg, rgba(14, 59, 54, 0.6) 0%, rgba(14, 59, 54, 0) 40%, rgba(10, 43, 39, 0.85) 100%);
+        linear-gradient(90deg, rgba(10, 43, 39, 0.9) 0%, rgba(10, 43, 39, 0.6) 45%, rgba(10, 43, 39, 0.1) 100%),
+        linear-gradient(180deg, rgba(10, 43, 39, 0.5) 0%, rgba(10, 43, 39, 0) 30%, rgba(10, 43, 39, 0.6) 100%);
+}
+
+.hero.hero-inicio .hero-texto {
+    position: absolute;
+    left: max(40px, calc((100% - 1200px) / 2));
+    bottom: 150px;
+    width: min(660px, calc(100% - 80px));
+    padding: 0;
+    text-align: left;
 }
 
 .hero.hero-inicio .hero-texto h1 {
-    font-size: 76px;
+    font-size: clamp(48px, 8vw, 104px);
+    line-height: 0.92;
+    letter-spacing: 1px;
+    margin-bottom: 22px;
+}
+
+.hero.hero-inicio .hero-texto h1 span {
+    color: var(--sol);
 }
 
 .hero.hero-inicio .hero-texto p {
-    max-width: 600px;
-    font-size: 20px;
+    max-width: 520px;
+    margin: 0 0 32px;
+    font-size: 19px;
     color: var(--branco);
-    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+}
+
+.hero.hero-inicio .hero-texto > * {
+    animation: subir 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.hero.hero-inicio .hero-texto > :nth-child(2) {
+    animation-delay: 0.12s;
+}
+
+.hero.hero-inicio .hero-texto > :nth-child(3) {
+    animation-delay: 0.24s;
+}
+
+.hero.hero-inicio .hero-texto > :nth-child(4) {
+    animation-delay: 0.36s;
+}
+
+@keyframes correnteza {
+    from {
+        transform: scale(1.12);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes subir {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .hero-botoes {
     display: flex;
-    gap: 16px;
-    justify-content: center;
+    gap: 14px;
     flex-wrap: wrap;
 }
 
@@ -1157,56 +1208,142 @@ footer .onda {
     color: var(--rio-profundo);
 }
 
-/* NÚMEROS — cartão sobreposto à onda do hero */
-.numeros {
+/* ESCALA DE CORREDEIRAS — classes I a VI com os passeios posicionados na escala */
+.escala {
     background-color: var(--espuma);
     padding: 0 40px;
 }
 
-.numeros-grade {
+.escala-painel {
     position: relative;
     z-index: 4;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    max-width: 1000px;
-    margin: -70px auto 0;
-    background: var(--branco);
-    border-radius: 12px;
-    box-shadow: 0 14px 34px rgba(14, 59, 54, 0.16);
-    border-bottom: 4px solid var(--sol);
-}
-
-.numero {
-    display: flex;
-    flex-direction: column-reverse;
+    grid-template-columns: 1fr 2fr;
+    gap: 48px;
     align-items: center;
-    padding: 28px 16px;
-    text-align: center;
+    max-width: 1200px;
+    margin: -90px auto 0;
+    padding: 40px 44px 44px;
+    background: var(--branco);
+    border-radius: 14px;
+    box-shadow: 0 18px 40px rgba(14, 59, 54, 0.16);
 }
 
-.numero + .numero {
-    border-left: 1px solid #e4e9e6;
-}
-
-.numero dd {
-    font-family: var(--fonte-display);
-    font-size: 42px;
-    line-height: 1.1;
-    color: var(--rio-profundo);
-}
-
-.numero dt {
+.escala-cabecalho .rotulo {
+    display: block;
     font-family: var(--fonte-mono);
     font-size: 12px;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     text-transform: uppercase;
+    color: var(--barro-escuro);
+    margin-bottom: 10px;
+}
+
+.escala-cabecalho h2 {
+    font-size: 32px;
+    line-height: 1.1;
+    color: var(--rio-profundo);
+    margin-bottom: 12px;
+}
+
+.escala-cabecalho p {
+    color: var(--tinta-suave);
+    font-size: 15px;
+}
+
+.escala-grade {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 4px;
+    row-gap: 16px;
+}
+
+.classe {
+    font-family: var(--fonte-display);
+    font-size: 26px;
+    line-height: 1;
+    text-align: center;
+    color: var(--branco);
+    padding: 12px 0;
+}
+
+.classe-1 {
+    background: var(--corrente);
+    border-radius: 8px 0 0 8px;
+}
+
+.classe-2 {
+    background: #23776a;
+}
+
+.classe-3 {
+    background: var(--rio-profundo);
+}
+
+.classe-4 {
+    background: var(--barro-escuro);
+}
+
+.classe-5,
+.classe-6 {
+    color: var(--tinta-suave);
+    background: repeating-linear-gradient(135deg, #e4e9e6 0, #e4e9e6 6px, #f1f4f2 6px, #f1f4f2 12px);
+}
+
+.classe-6 {
+    border-radius: 0 8px 8px 0;
+}
+
+.escala-passeio,
+.escala-fora {
+    grid-row: 2;
+    border-left: 2px solid var(--corrente);
+    padding: 2px 0 2px 10px;
+    font-size: 13.5px;
+    line-height: 1.4;
+    text-decoration: none;
+}
+
+.escala-passeio strong {
+    display: block;
+    color: var(--rio-profundo);
+    font-size: 15px;
+    transition: color 0.25s;
+}
+
+.escala-passeio span,
+.escala-fora {
     color: var(--tinta-suave);
 }
 
-/* SEÇÃO DESTAQUES — grade 3 x 2 alternando imagem e texto */
+.escala-passeio:hover strong {
+    color: var(--barro-escuro);
+}
+
+.escala-passeio-1 {
+    grid-column: 1 / 3;
+}
+
+.escala-passeio-2 {
+    grid-column: 3 / 4;
+    border-left-color: var(--rio-profundo);
+}
+
+.escala-passeio-3 {
+    grid-column: 4 / 5;
+    border-left-color: var(--barro-escuro);
+}
+
+.escala-fora {
+    grid-column: 5 / 7;
+    border-left-style: dashed;
+    border-left-color: #b8c5c0;
+}
+
+/* DESTAQUES — composição assimétrica: duas fotos altas e uma linha larga */
 .destaques {
     background-color: var(--espuma);
-    padding: 90px 40px 70px;
+    padding: 100px 40px 90px;
     text-align: center;
 }
 
@@ -1223,47 +1360,167 @@ footer .onda {
 
 .destaques-grade {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: minmax(300px, auto);
-    gap: 20px;
+    grid-template-columns: 1.15fr 1fr 1.15fr;
+    gap: 28px 36px;
     max-width: 1200px;
-    margin: 40px auto 0;
+    margin: 50px auto 0;
+    text-align: left;
 }
 
 .destaques-grade img {
     width: 100%;
     height: 100%;
+    min-height: 240px;
     object-fit: cover;
-    border-radius: 8px;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border-radius: 10px;
 }
 
-.destaques-grade img:hover {
-    transform: scale(1.03);
-    box-shadow: 0 12px 28px rgba(14, 59, 54, 0.2);
+.destaques-grade > :nth-child(1) {
+    grid-column: 1;
+    grid-row: 1 / 3;
+    min-height: 520px;
+}
+
+.destaques-grade > :nth-child(2) {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.destaques-grade > :nth-child(3) {
+    grid-column: 3;
+    grid-row: 1 / 3;
+}
+
+.destaques-grade > :nth-child(4) {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.destaques-grade > :nth-child(5) {
+    grid-column: 1;
+    grid-row: 3;
+    height: 260px;
+}
+
+.destaques-grade > :nth-child(6) {
+    grid-column: 2 / 4;
+    grid-row: 3;
 }
 
 .destaque-texto {
-    background: var(--branco);
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(14, 59, 54, 0.08);
-    border-top: 4px solid var(--sol);
-    padding: 30px 26px;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    align-self: center;
+    border-top: 3px solid var(--sol);
+    padding-top: 20px;
 }
 
 .destaque-texto h3 {
     color: var(--rio-profundo);
-    font-size: 21px;
+    font-size: 22px;
     margin-bottom: 12px;
 }
 
 .destaque-texto p {
     color: var(--tinta-suave);
-    font-size: 15px;
+    font-size: 15.5px;
+    max-width: 560px;
+}
+
+/* CHAMADA com foto de fundo (página inicial) */
+.chamada.chamada-foto {
+    background:
+        linear-gradient(90deg, rgba(10, 43, 39, 0.94) 0%, rgba(10, 43, 39, 0.75) 55%, rgba(10, 43, 39, 0.4) 100%),
+        url("../imagens/rafting-5.jpg") center / cover;
+    padding-top: 110px;
+    padding-bottom: 110px;
+}
+
+.chamada.chamada-foto h2 {
+    font-size: 44px;
+}
+
+/* RESPONSIVIDADE — página inicial */
+@media (max-width: 900px) {
+    .escala-painel {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .destaques-grade {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .destaques-grade > :nth-child(n) {
+        grid-column: auto;
+        grid-row: auto;
+        min-height: 0;
+    }
+
+    .destaques-grade > img:nth-child(n) {
+        height: 280px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero.hero-inicio {
+        height: 640px;
+    }
+
+    .hero.hero-inicio .hero-texto {
+        left: 20px;
+        bottom: 110px;
+        width: calc(100% - 40px);
+    }
+
+    .hero.hero-inicio .hero-texto p {
+        font-size: 16px;
+    }
+
+    .escala {
+        padding: 0 20px;
+    }
+
+    .escala-painel {
+        margin-top: -60px;
+        padding: 28px 22px;
+    }
+
+    .escala-cabecalho h2 {
+        font-size: 26px;
+    }
+
+    .classe {
+        font-size: 20px;
+    }
+
+    .escala-passeio,
+    .escala-fora {
+        grid-row: auto;
+        grid-column: 1 / -1;
+    }
+
+    .destaques-grade {
+        grid-template-columns: 1fr;
+    }
+
+    .destaques-grade > img:nth-child(n) {
+        height: 240px;
+    }
+
+    .chamada.chamada-foto {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    .chamada.chamada-foto h2 {
+        font-size: 30px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero.hero-inicio img,
+    .hero.hero-inicio .hero-texto > * {
+        animation: none;
+    }
 }
 
 /* CHAMADA PARA AÇÃO — faixa com texto à esquerda e botão à direita */
@@ -1500,10 +1757,6 @@ footer .onda {
 
 /* RESPONSIVIDADE — páginas Inicial e Passeios */
 @media (max-width: 900px) {
-    .destaques-grade {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
     .newsletter {
         grid-template-columns: 1fr;
     }
@@ -1516,52 +1769,6 @@ footer .onda {
     .newsletter,
     .chamada {
         padding: 60px 20px;
-    }
-
-    .destaques-grade {
-        grid-template-columns: 1fr;
-        grid-auto-rows: auto;
-    }
-
-    .hero.hero-inicio .hero-texto h1 {
-        font-size: 44px;
-    }
-
-    .hero.hero-inicio .hero-texto p {
-        font-size: 16px;
-    }
-
-    .numeros {
-        padding: 0 20px;
-    }
-
-    .numeros-grade {
-        grid-template-columns: repeat(2, 1fr);
-        margin-top: -50px;
-    }
-
-    .numero {
-        padding: 20px 12px;
-    }
-
-    .numero + .numero {
-        border-left: 0;
-    }
-
-    .numero:nth-child(even) {
-        border-left: 1px solid #e4e9e6;
-    }
-
-    .numero:nth-child(n+3) {
-        border-top: 1px solid #e4e9e6;
-    }
-
-    .numero dd {
-        font-size: 32px;
-    }
-
-    .destaques-grade img {
-        height: 240px;
     }
 
     .chamada {
