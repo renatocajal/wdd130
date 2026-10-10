@@ -1103,3 +1103,375 @@ footer .onda {
         font-size: 13px;
     }
 }
+
+/* ============================================
+   PÁGINA INICIAL
+   ============================================ */
+
+/* Título do hero posicionado sobre a imagem com position: absolute */
+.hero.hero-inicio .hero-texto {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(90%, 760px);
+}
+
+.btn-link.btn-hero {
+    display: inline-block;
+}
+
+/* SEÇÃO DESTAQUES — grade 3 x 2 alternando imagem e texto */
+.destaques {
+    background-color: var(--espuma);
+    padding: 90px 40px 70px;
+    text-align: center;
+}
+
+.destaques h2 {
+    font-size: 38px;
+    margin-bottom: 12px;
+    color: var(--rio-profundo);
+}
+
+.destaques .subtitulo-secao {
+    color: var(--tinta-suave);
+    margin-bottom: 0;
+}
+
+.destaques-grade {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 300px;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 40px auto 0;
+}
+
+.destaques-grade img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.destaque-texto {
+    background: var(--branco);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(14, 59, 54, 0.08);
+    border-top: 4px solid var(--sol);
+    padding: 30px 26px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.destaque-texto h3 {
+    color: var(--rio-profundo);
+    font-size: 21px;
+    margin-bottom: 12px;
+}
+
+.destaque-texto p {
+    color: var(--tinta-suave);
+    font-size: 15px;
+}
+
+/* CHAMADA PARA AÇÃO — faixa com texto à esquerda e botão à direita */
+.chamada {
+    background: linear-gradient(135deg, var(--rio-profundo) 0%, var(--corrente) 100%);
+    color: var(--branco);
+    padding: 70px 40px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 30px;
+}
+
+.chamada-conteudo {
+    max-width: 700px;
+}
+
+.chamada h2 {
+    font-size: 34px;
+    margin-bottom: 10px;
+}
+
+.chamada p {
+    color: var(--espuma);
+    font-size: 17px;
+}
+
+.chamada.chamada-clara {
+    background: var(--espuma);
+    color: var(--tinta);
+}
+
+.chamada.chamada-clara h2 {
+    color: var(--rio-profundo);
+}
+
+.chamada.chamada-clara p {
+    color: var(--tinta-suave);
+}
+
+/* NEWSLETTER — texto e formulário lado a lado */
+.newsletter {
+    background-color: var(--espuma);
+    padding: 90px 40px 70px;
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 40px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.newsletter h2 {
+    font-size: 34px;
+    color: var(--rio-profundo);
+    margin-bottom: 12px;
+}
+
+.newsletter-texto p {
+    color: var(--tinta-suave);
+}
+
+.form-newsletter {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 16px;
+    align-items: end;
+    background: var(--branco);
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(14, 59, 54, 0.08);
+    padding: 28px;
+}
+
+.form-newsletter label {
+    font-weight: 600;
+    color: var(--rio-profundo);
+}
+
+.form-newsletter input {
+    font-family: var(--fonte-corpo);
+    font-size: 16px;
+    color: var(--tinta);
+    padding: 12px 14px;
+    border: 2px solid #b8c5c0;
+    border-radius: 6px;
+    background: var(--branco);
+    width: 100%;
+}
+
+.form-newsletter input:focus-visible {
+    outline: 3px solid var(--sol);
+    outline-offset: 2px;
+    border-color: var(--corrente);
+}
+
+.form-newsletter button {
+    background-color: var(--barro-escuro);
+}
+
+/* ============================================
+   PÁGINA PASSEIOS
+   ============================================ */
+
+/* DETALHES — imagem e texto alternando de lado */
+.detalhes {
+    background-color: var(--espuma);
+    padding: 90px 40px 70px;
+    text-align: center;
+}
+
+.detalhes h2 {
+    font-size: 38px;
+    margin-bottom: 12px;
+    color: var(--rio-profundo);
+}
+
+.detalhes .subtitulo-secao {
+    color: var(--tinta-suave);
+    margin-bottom: 0;
+}
+
+.detalhe {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 40px;
+    align-items: center;
+    max-width: 1100px;
+    margin: 50px auto 0;
+    text-align: left;
+}
+
+.detalhe img {
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 10px 24px rgba(14, 59, 54, 0.14);
+}
+
+.detalhe-invertido img {
+    order: 2;
+}
+
+.detalhe-texto h3 {
+    font-size: 28px;
+    color: var(--rio-profundo);
+    margin-bottom: 12px;
+}
+
+.detalhe-texto p {
+    color: var(--tinta-suave);
+    margin-bottom: 14px;
+}
+
+.detalhe-texto .detalhe-equipamentos {
+    background: var(--branco);
+    border-left: 4px solid var(--sol);
+    border-radius: 4px;
+    padding: 12px 16px;
+    margin-bottom: 0;
+}
+
+.detalhe-equipamentos strong {
+    color: var(--tinta);
+}
+
+/* TABELA DE PASSEIOS */
+.tabela-passeios {
+    background: var(--branco);
+    padding: 90px 40px;
+    text-align: center;
+}
+
+.tabela-passeios h2 {
+    font-size: 38px;
+    margin-bottom: 12px;
+    color: var(--rio-profundo);
+}
+
+.tabela-passeios .subtitulo-secao {
+    color: var(--tinta-suave);
+    margin-bottom: 0;
+}
+
+.tabela-container {
+    max-width: 1100px;
+    margin: 40px auto 0;
+    overflow-x: auto;
+}
+
+.tabela-passeios table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 15px;
+}
+
+.tabela-passeios caption {
+    caption-side: bottom;
+    padding-top: 12px;
+    font-size: 13px;
+    color: var(--tinta-suave);
+}
+
+.tabela-passeios th,
+.tabela-passeios td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #e4e9e6;
+}
+
+.tabela-passeios thead th {
+    background: var(--rio-profundo);
+    color: var(--branco);
+    font-family: var(--fonte-mono);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.tabela-passeios tbody th {
+    color: var(--rio-profundo);
+    font-weight: 700;
+}
+
+.tabela-passeios tbody tr:nth-child(even) {
+    background: var(--espuma);
+}
+
+.tabela-passeios td:last-child {
+    font-family: var(--fonte-mono);
+    font-weight: 600;
+    color: var(--barro-escuro);
+    white-space: nowrap;
+}
+
+/* RESPONSIVIDADE — páginas Inicial e Passeios */
+@media (max-width: 900px) {
+    .destaques-grade {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .newsletter {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .destaques,
+    .detalhes,
+    .tabela-passeios,
+    .newsletter,
+    .chamada {
+        padding: 60px 20px;
+    }
+
+    .destaques-grade {
+        grid-template-columns: 1fr;
+        grid-auto-rows: auto;
+    }
+
+    .destaques-grade img {
+        height: 240px;
+    }
+
+    .chamada {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .chamada-conteudo {
+        margin: 0 auto;
+    }
+
+    .form-newsletter {
+        grid-template-columns: 1fr;
+    }
+
+    .detalhe {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .detalhe img {
+        height: 240px;
+    }
+
+    .detalhe-invertido img {
+        order: 0;
+    }
+
+    .destaques h2,
+    .detalhes h2,
+    .tabela-passeios h2,
+    .newsletter h2,
+    .chamada h2 {
+        font-size: 28px;
+    }
+}
