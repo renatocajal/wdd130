@@ -1117,8 +1117,90 @@ footer .onda {
     width: min(90%, 760px);
 }
 
+/* Película mais escura no centro para o texto ficar legível sobre a espuma */
+.hero.hero-inicio::before {
+    background:
+        radial-gradient(ellipse at center, rgba(10, 43, 39, 0.72) 0%, rgba(10, 43, 39, 0.5) 55%, rgba(10, 43, 39, 0.2) 100%),
+        linear-gradient(180deg, rgba(14, 59, 54, 0.6) 0%, rgba(14, 59, 54, 0) 40%, rgba(10, 43, 39, 0.85) 100%);
+}
+
+.hero.hero-inicio .hero-texto h1 {
+    font-size: 76px;
+}
+
+.hero.hero-inicio .hero-texto p {
+    max-width: 600px;
+    font-size: 20px;
+    color: var(--branco);
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+}
+
+.hero-botoes {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 .btn-link.btn-hero {
     display: inline-block;
+}
+
+.btn-link.btn-contorno {
+    background-color: transparent;
+    border: 2px solid var(--branco);
+    padding: 15px 42px;
+}
+
+.btn-link.btn-contorno:hover {
+    background-color: var(--branco);
+    color: var(--rio-profundo);
+}
+
+/* NÚMEROS — cartão sobreposto à onda do hero */
+.numeros {
+    background-color: var(--espuma);
+    padding: 0 40px;
+}
+
+.numeros-grade {
+    position: relative;
+    z-index: 4;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 1000px;
+    margin: -70px auto 0;
+    background: var(--branco);
+    border-radius: 12px;
+    box-shadow: 0 14px 34px rgba(14, 59, 54, 0.16);
+    border-bottom: 4px solid var(--sol);
+}
+
+.numero {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    padding: 28px 16px;
+    text-align: center;
+}
+
+.numero + .numero {
+    border-left: 1px solid #e4e9e6;
+}
+
+.numero dd {
+    font-family: var(--fonte-display);
+    font-size: 42px;
+    line-height: 1.1;
+    color: var(--rio-profundo);
+}
+
+.numero dt {
+    font-family: var(--fonte-mono);
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--tinta-suave);
 }
 
 /* SEÇÃO DESTAQUES — grade 3 x 2 alternando imagem e texto */
@@ -1142,7 +1224,7 @@ footer .onda {
 .destaques-grade {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 300px;
+    grid-auto-rows: minmax(300px, auto);
     gap: 20px;
     max-width: 1200px;
     margin: 40px auto 0;
@@ -1153,6 +1235,12 @@ footer .onda {
     height: 100%;
     object-fit: cover;
     border-radius: 8px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.destaques-grade img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 12px 28px rgba(14, 59, 54, 0.2);
 }
 
 .destaque-texto {
@@ -1182,7 +1270,7 @@ footer .onda {
 .chamada {
     background: linear-gradient(135deg, var(--rio-profundo) 0%, var(--corrente) 100%);
     color: var(--branco);
-    padding: 70px 40px;
+    padding: 70px max(40px, calc((100% - 1200px) / 2));
     display: grid;
     grid-template-columns: 1fr auto;
     align-items: center;
@@ -1219,13 +1307,11 @@ footer .onda {
 /* NEWSLETTER — texto e formulário lado a lado */
 .newsletter {
     background-color: var(--espuma);
-    padding: 90px 40px 70px;
+    padding: 90px max(40px, calc((100% - 1200px) / 2)) 70px;
     display: grid;
     grid-template-columns: 1fr 1.3fr;
     gap: 40px;
     align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
 }
 
 .newsletter h2 {
@@ -1435,6 +1521,43 @@ footer .onda {
     .destaques-grade {
         grid-template-columns: 1fr;
         grid-auto-rows: auto;
+    }
+
+    .hero.hero-inicio .hero-texto h1 {
+        font-size: 44px;
+    }
+
+    .hero.hero-inicio .hero-texto p {
+        font-size: 16px;
+    }
+
+    .numeros {
+        padding: 0 20px;
+    }
+
+    .numeros-grade {
+        grid-template-columns: repeat(2, 1fr);
+        margin-top: -50px;
+    }
+
+    .numero {
+        padding: 20px 12px;
+    }
+
+    .numero + .numero {
+        border-left: 0;
+    }
+
+    .numero:nth-child(even) {
+        border-left: 1px solid #e4e9e6;
+    }
+
+    .numero:nth-child(n+3) {
+        border-top: 1px solid #e4e9e6;
+    }
+
+    .numero dd {
+        font-size: 32px;
     }
 
     .destaques-grade img {
